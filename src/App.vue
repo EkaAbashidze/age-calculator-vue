@@ -76,11 +76,13 @@ export default {
   methods: {
     calculateAge() {
       const birthDate = new Date(this.year, this.month - 1, this.day);
+
+      const isValidInput =
+        this.day !== "" && this.month !== "" && this.year !== "";
+
       if (
-        (this.day !== null && this.month !== null && this.year !== null) ||
-        !this.dayError ||
-        !this.monthError ||
-        !this.yearError
+        isValidInput &&
+        (!this.dayError || !this.monthError || !this.yearError)
       ) {
         this.ageDays = this.today.getDate() - birthDate.getDate();
         this.ageMonths = this.today.getMonth() - birthDate.getMonth();
