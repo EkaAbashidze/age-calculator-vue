@@ -80,21 +80,13 @@ export default {
       const isValidInput =
         this.day !== "" && this.month !== "" && this.year !== "";
 
-      const noErrors = !this.dayError || !this.monthError || !this.yearError;
+      const noErrors = !this.dayError && !this.monthError && !this.yearError;
 
       if (isValidInput && noErrors) {
         this.ageDays = this.today.getDate() - birthDate.getDate();
         this.ageMonths = this.today.getMonth() - birthDate.getMonth();
         this.ageYears = this.today.getFullYear() - birthDate.getFullYear();
-      }
-      if (
-        this.day === "" ||
-        this.month === "" ||
-        this.year === "" ||
-        this.dayError ||
-        this.monthError ||
-        this.yearError
-      ) {
+      } else {
         this.ageDays = "--";
         this.ageMonths = "--";
         this.ageYears = "--";
