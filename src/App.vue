@@ -93,21 +93,28 @@ export default {
       }
     },
     getDayError() {
-      if (this.day <= 0 || this.day > 31) {
+      const isValidDay = this.day <= 0 || this.day > 31;
+
+      if (isValidDay) {
         this.dayError = true;
       } else {
         this.dayError = false;
       }
     },
     getMonthError() {
-      if (this.month <= 0 || this.month > 12) {
+      const isValidMonth = this.month <= 0 || this.month > 12;
+
+      if (isValidMonth) {
         this.monthError = true;
       } else {
         this.monthError = false;
       }
     },
     getYearError() {
-      if (this.year <= 0 || this.year > this.today.getFullYear()) {
+      const isValidYear =
+        this.year <= 0 || this.year > this.today.getFullYear();
+
+      if (isValidYear) {
         this.yearError = true;
       } else {
         this.yearError = false;
