@@ -8,8 +8,7 @@
           name="day"
           placeholder="DD"
           v-model="day"
-          @input="calculateAge"
-          v-on:input="getDayError"
+          @input="getDayError"
         />
       </div>
       <div v-if="dayError">
@@ -22,8 +21,7 @@
           name="month"
           placeholder="MM"
           v-model="month"
-          @input="calculateAge"
-          v-on:input="getMonthError"
+          @input="getMonthError"
         />
       </div>
       <div v-if="monthError">
@@ -36,8 +34,7 @@
           name="year"
           placeholder="YYYY"
           v-model="year"
-          @input="calculateAge"
-          v-on:input="getYearError"
+          @input="getYearError"
         />
       </div>
       <div v-if="yearError">
@@ -67,6 +64,14 @@ export default {
       monthError: false,
       yearError: false,
     };
+  },
+  watch: {
+    day: "calculateAge",
+    month: "calculateAge",
+    year: "calculateAge",
+    dayError: "calculateAge",
+    monthError: "calculateAge",
+    yearError: "calculateAge",
   },
   methods: {
     calculateAge() {
@@ -99,7 +104,6 @@ export default {
         this.dayError = true;
       } else {
         this.dayError = false;
-        this.calculateAge();
       }
     },
     getMonthError() {
@@ -107,7 +111,6 @@ export default {
         this.monthError = true;
       } else {
         this.monthError = false;
-        this.calculateAge();
       }
     },
     getYearError() {
@@ -115,7 +118,6 @@ export default {
         this.yearError = true;
       } else {
         this.yearError = false;
-        this.calculateAge();
       }
     },
   },
