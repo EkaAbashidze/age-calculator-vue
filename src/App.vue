@@ -82,6 +82,9 @@ export default {
 
       const isValidDay = !this.dayError && this.day <= 0 && this.day > 31;
 
+      const isValidMonth =
+        !this.monthError && this.month <= 0 && this.month > 12;
+
       if (isValidInput && (isValidDay || !this.monthError || !this.yearError)) {
         this.ageDays = this.today.getDate() - birthDate.getDate();
         this.ageMonths = this.today.getMonth() - birthDate.getMonth();
@@ -108,7 +111,7 @@ export default {
       }
     },
     getMonthError() {
-      if (this.month <= 0 || this.month > 12) {
+      if (isValidMonth) {
         this.monthError = true;
       } else {
         this.monthError = false;
