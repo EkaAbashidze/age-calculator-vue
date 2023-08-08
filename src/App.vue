@@ -80,12 +80,9 @@ export default {
       const isValidInput =
         this.day !== "" && this.month !== "" && this.year !== "";
 
-      const isValidDay = !this.dayError && this.day <= 0 && this.day > 31;
+      const noErrors = !this.dayError || !this.monthError || !this.yearError;
 
-      const isValidMonth =
-        !this.monthError && this.month <= 0 && this.month > 12;
-
-      if (isValidInput && (isValidDay || !this.monthError || !this.yearError)) {
+      if (isValidInput && noErrors) {
         this.ageDays = this.today.getDate() - birthDate.getDate();
         this.ageMonths = this.today.getMonth() - birthDate.getMonth();
         this.ageYears = this.today.getFullYear() - birthDate.getFullYear();
@@ -104,14 +101,14 @@ export default {
       }
     },
     getDayError() {
-      if (isValidDay) {
+      if (this.day <= 0 || this.day > 31) {
         this.dayError = true;
       } else {
         this.dayError = false;
       }
     },
     getMonthError() {
-      if (isValidMonth) {
+      if (this.month <= 0 || this.month > 12) {
         this.monthError = true;
       } else {
         this.monthError = false;
