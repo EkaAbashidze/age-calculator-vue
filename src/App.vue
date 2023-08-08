@@ -93,7 +93,7 @@ export default {
       }
     },
     getDayError() {
-      const isValidDay = this.day <= 0 || this.day > 31;
+      const isValidDay = this.day !== "" && (this.day <= 0 || this.day > 31);
 
       if (isValidDay) {
         this.dayError = true;
@@ -102,7 +102,8 @@ export default {
       }
     },
     getMonthError() {
-      const isValidMonth = this.month <= 0 || this.month > 12;
+      const isValidMonth =
+        this.month !== "" && (this.month <= 0 || this.month > 12);
 
       if (isValidMonth) {
         this.monthError = true;
@@ -112,7 +113,8 @@ export default {
     },
     getYearError() {
       const isValidYear =
-        this.year <= 0 || this.year > this.today.getFullYear();
+        this.year !== "" &&
+        (this.year <= 0 || this.year > this.today.getFullYear());
 
       if (isValidYear) {
         this.yearError = true;
