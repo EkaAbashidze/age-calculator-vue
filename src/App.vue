@@ -1,12 +1,13 @@
 <template>
   <div class="bg-[#F0F0F0] flex justify-center items-center h-screen flex-col">
     <div
-      class="flex flex-col justify-center items-center bg-white rounded-t-[24px] rounded-bl-[24px] rounded-br-[100px] w-[343px] h-[486px] py-[48px] px-[24px]"
+      class="flex flex-col justify-center bg-white rounded-t-[24px] rounded-bl-[24px] rounded-br-[100px] w-[343px] h-[486px] py-[48px] px-[24px]"
     >
       <div class="flex justify-center items-center gap-x-4">
         <div class="flex flex-col gap-y-1">
           <label
             for="day"
+            :class="{ 'text-red-600': dayError }"
             class="text-gray-700 font-poppins text-xs font-semibold tracking-widest uppercase"
             >DAY</label
           >
@@ -15,15 +16,17 @@
             name="day"
             placeholder="DD"
             v-model="day"
-            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-lg font-semibold leading-normal tracking-tighter"
+            :class="{ 'border-red-600': dayError }"
+            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-[20px] font-semibold leading-normal tracking-tight"
           />
-          <div v-if="dayError">
+          <div v-if="dayError" class="text-red-600">
             <p>Must be a valid day</p>
           </div>
         </div>
         <div class="flex flex-col gap-y-1">
           <label
             for="month"
+            :class="{ 'border-red-600': monthError }"
             class="text-gray-700 font-poppins text-xs font-semibold tracking-widest uppercase"
             >MONTH</label
           >
@@ -32,15 +35,17 @@
             name="month"
             placeholder="MM"
             v-model="month"
-            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-lg font-semibold leading-normal tracking-tighter"
+            :class="{ 'border-red-600': monthError }"
+            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-[20px] font-semibold leading-normal tracking-tight"
           />
-          <div v-if="monthError">
+          <div v-if="monthError" class="text-red-600">
             <p>Must be a valid month</p>
           </div>
         </div>
         <div class="flex flex-col gap-y-1">
           <label
             for="YEAR"
+            :class="{ 'border-red-600': yearError }"
             class="text-gray-700 font-poppins text-xs font-semibold tracking-widest uppercase"
             >YEAR</label
           >
@@ -49,9 +54,10 @@
             name="year"
             placeholder="YYYY"
             v-model="year"
-            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-lg font-semibold leading-normal tracking-tighter"
+            :class="{ 'border-red-600': yearError }"
+            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-[20px] font-semibold leading-normal tracking-tight"
           />
-          <div v-if="yearError">
+          <div v-if="yearError" class="text-red-600">
             <p>Must be in the past</p>
           </div>
         </div>
@@ -67,9 +73,28 @@
       </div>
 
       <div class="">
-        <h1>{{ age.days }} days</h1>
-        <h1>{{ age.months }} months</h1>
-        <h1>{{ age.years }} years</h1>
+        <h1
+          class="text-black poppinsBold text-[56px] italic font-extrabold leading-[110%] tracking-tight"
+        >
+          <span class="text-purple-800">
+            {{ age.years }}
+          </span>
+          years
+        </h1>
+        <h1
+          class="text-black poppinsBold text-[56px] italic font-extrabold leading-[110%] tracking-tight"
+        >
+          <span class="text-purple-800">
+            {{ age.months }}
+          </span>
+          months
+        </h1>
+        <h1
+          class="text-black poppinsBold text-[56px] italic font-extrabold leading-[110%] tracking-tight"
+        >
+          <span class="text-purple-800"> {{ age.days }}</span>
+          days
+        </h1>
       </div>
     </div>
   </div>
