@@ -4,7 +4,7 @@
       class="flex flex-col justify-center bg-white rounded-t-[24px] rounded-bl-[24px] rounded-br-[100px] w-[343px] h-[486px] py-[48px] px-[24px]"
     >
       <div class="flex justify-center items-center gap-x-4">
-        <div class="flex flex-col gap-y-1">
+        <div class="flex flex-col gap-y-1 h-[120px]">
           <label
             for="day"
             :class="errorStyles(dayError)"
@@ -19,11 +19,14 @@
             :class="errorStyles(dayError)"
             class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-[20px] font-semibold leading-normal tracking-tight"
           />
-          <div v-if="dayError" class="text-red-600">
+          <div
+            v-if="dayError"
+            class="text-red-600 font-poppins text-[14px] italic font-normal leading-normal"
+          >
             <p>Must be a valid day</p>
           </div>
         </div>
-        <div class="flex flex-col gap-y-1">
+        <div class="flex flex-col gap-y-1 h-[120px]">
           <label
             for="month"
             :class="errorStyles(monthError)"
@@ -38,11 +41,14 @@
             :class="errorStyles(monthError)"
             class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-[20px] font-semibold leading-normal tracking-tight"
           />
-          <div v-if="monthError" class="text-red-600">
+          <div
+            v-if="monthError"
+            class="text-red-600 font-poppins text-[14px] italic font-normal leading-normal"
+          >
             <p>Must be a valid month</p>
           </div>
         </div>
-        <div class="flex flex-col gap-y-1">
+        <div class="flex flex-col gap-y-1 h-[120px]">
           <label
             for="YEAR"
             :class="errorStyles(yearError)"
@@ -57,16 +63,19 @@
             :class="errorStyles(yearError)"
             class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-[20px] font-semibold leading-normal tracking-tight"
           />
-          <div v-if="yearError" class="text-red-600">
+          <div
+            v-if="yearError"
+            class="text-red-600 font-poppins text-[14px] italic font-normal leading-normal"
+          >
             <p>Must be in the past</p>
           </div>
         </div>
       </div>
       <div
-        class="h-[1px] bg-[#DCDCDC] w-full relative my-[64px] flex items-center justify-center"
+        class="h-[1px] bg-[#DCDCDC] w-full my-[32px] mb-[64px] flex items-center justify-center"
       >
         <div
-          class="w-[64px] h-[64px] bg-[#854DFF] rounded-full flex justify-center absolute"
+          class="w-[64px] h-[64px] bg-[#854DFF] rounded-full flex justify-center"
         >
           <img src="./assets/icon-arrow.svg" alt="" class="w-[20px] h-auto" />
         </div>
@@ -143,7 +152,7 @@ export default {
     },
     errorStyles(error) {
       return (error) => {
-        return { "border-red-600": error };
+        return { "border-red-600 text-red-600": error };
       };
     },
   },
