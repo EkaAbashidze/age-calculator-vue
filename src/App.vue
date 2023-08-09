@@ -8,7 +8,7 @@
           <label
             for="day"
             :class="errorStyles(dayError)"
-            class="text-gray-700 font-poppinsBold text-[12px] font-semibold tracking-widest uppercase lg:text-[14px]"
+            class="text-gray-700 font-poppinsBold text-[12px] font-semibold tracking-widest uppercase lg:text-[14px] lg:tracking-[3.5px]"
             >DAY</label
           >
           <input
@@ -30,7 +30,7 @@
           <label
             for="month"
             :class="errorStyles(monthError)"
-            class="text-gray-700 font-poppins text-[12px] font-semibold tracking-widest uppercase lg:text-[14px]"
+            class="text-gray-700 font-poppins text-[12px] font-semibold tracking-widest uppercase lg:text-[14px] lg:tracking-[3.5px]"
             >MONTH</label
           >
           <input
@@ -52,7 +52,7 @@
           <label
             for="YEAR"
             :class="errorStyles(yearError)"
-            class="text-gray-700 font-poppins text-[12px] font-semibold tracking-widest uppercase lg:text-[14px]"
+            class="text-gray-700 font-poppins text-[12px] font-semibold tracking-widest uppercase lg:text-[14px] lg:tracking-[3.5px]"
             >YEAR</label
           >
           <input
@@ -75,7 +75,7 @@
         class="h-[1px] bg-[#DCDCDC] w-full my-[32px] mb-[64px] flex items-center justify-center lg:justify-end"
       >
         <div
-          class="w-[64px] h-[64px] bg-[#854DFF] rounded-full flex justify-center lg:w-[96px] lg:h-[96px]"
+          class="w-[64px] h-[64px] bg-[#854DFF] hover:bg-black cursor-pointer rounded-full flex justify-center lg:w-[96px] lg:h-[96px]"
         >
           <img
             src="./assets/icon-arrow.svg"
