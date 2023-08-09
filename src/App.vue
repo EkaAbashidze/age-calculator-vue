@@ -7,7 +7,7 @@
         <div class="flex flex-col gap-y-1">
           <label
             for="day"
-            :class="{ 'text-red-600': dayError }"
+            :class="errorStyles(dayError)"
             class="text-gray-700 font-poppins text-xs font-semibold tracking-widest uppercase"
             >DAY</label
           >
@@ -16,7 +16,7 @@
             name="day"
             placeholder="DD"
             v-model="day"
-            :class="{ 'border-red-600': dayError }"
+            :class="errorStyles(dayError)"
             class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-[20px] font-semibold leading-normal tracking-tight"
           />
           <div v-if="dayError" class="text-red-600">
@@ -26,7 +26,7 @@
         <div class="flex flex-col gap-y-1">
           <label
             for="month"
-            :class="{ 'border-red-600': monthError }"
+            :class="errorStyles(monthError)"
             class="text-gray-700 font-poppins text-xs font-semibold tracking-widest uppercase"
             >MONTH</label
           >
@@ -35,7 +35,7 @@
             name="month"
             placeholder="MM"
             v-model="month"
-            :class="{ 'border-red-600': monthError }"
+            :class="errorStyles(monthError)"
             class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-[20px] font-semibold leading-normal tracking-tight"
           />
           <div v-if="monthError" class="text-red-600">
@@ -45,7 +45,7 @@
         <div class="flex flex-col gap-y-1">
           <label
             for="YEAR"
-            :class="{ 'border-red-600': yearError }"
+            :class="errorStyles(yearError)"
             class="text-gray-700 font-poppins text-xs font-semibold tracking-widest uppercase"
             >YEAR</label
           >
@@ -54,7 +54,7 @@
             name="year"
             placeholder="YYYY"
             v-model="year"
-            :class="{ 'border-red-600': yearError }"
+            :class="errorStyles(yearError)"
             class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-[20px] font-semibold leading-normal tracking-tight"
           />
           <div v-if="yearError" class="text-red-600">
@@ -140,6 +140,11 @@ export default {
         this.year !== "" &&
         (this.year <= 0 || this.year > this.today.getFullYear())
       );
+    },
+    errorStyles(error) {
+      return (error) => {
+        return { "border-red-600": error };
+      };
     },
   },
 };
