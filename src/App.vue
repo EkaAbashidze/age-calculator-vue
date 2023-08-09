@@ -1,50 +1,72 @@
 <template>
   <div class="bg-[#F0F0F0] flex justify-center items-center h-screen flex-col">
     <div
-      class="flex flex-col justify-center items-center bg-white rounded-t-[24px] rounded-bl-[24px] rounded-br-[100px] w-[343px] h-[486px]"
+      class="flex flex-col justify-center items-center bg-white rounded-t-[24px] rounded-bl-[24px] rounded-br-[100px] w-[343px] h-[486px] py-[48px] px-[24px]"
     >
       <div class="flex justify-center items-center gap-x-4">
-        <div class="flex flex-col">
-          <label for="day">DAY</label>
+        <div class="flex flex-col gap-y-1">
+          <label
+            for="day"
+            class="text-gray-700 font-poppins text-xs font-semibold tracking-widest uppercase"
+            >DAY</label
+          >
           <input
             type="number"
             name="day"
             placeholder="DD"
             v-model="day"
-            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none"
+            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-lg font-semibold leading-normal tracking-tighter"
           />
           <div v-if="dayError">
             <p>Must be a valid day</p>
           </div>
         </div>
-        <div class="flex flex-col">
-          <label for="month">MONTH</label>
+        <div class="flex flex-col gap-y-1">
+          <label
+            for="month"
+            class="text-gray-700 font-poppins text-xs font-semibold tracking-widest uppercase"
+            >MONTH</label
+          >
           <input
             type="number"
             name="month"
             placeholder="MM"
             v-model="month"
-            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none"
+            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-lg font-semibold leading-normal tracking-tighter"
           />
           <div v-if="monthError">
             <p>Must be a valid month</p>
           </div>
         </div>
-        <div class="flex flex-col">
-          <label for="YEAR">YEAR</label>
+        <div class="flex flex-col gap-y-1">
+          <label
+            for="YEAR"
+            class="text-gray-700 font-poppins text-xs font-semibold tracking-widest uppercase"
+            >YEAR</label
+          >
           <input
             type="number"
             name="year"
             placeholder="YYYY"
             v-model="year"
-            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none"
+            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-lg font-semibold leading-normal tracking-tighter"
           />
           <div v-if="yearError">
             <p>Must be in the past</p>
           </div>
         </div>
       </div>
-      <div>
+      <div
+        class="h-[1px] bg-[#DCDCDC] w-full relative my-[64px] flex items-center justify-center"
+      >
+        <div
+          class="w-[64px] h-[64px] bg-[#854DFF] rounded-full flex justify-center absolute"
+        >
+          <img src="./assets/icon-arrow.svg" alt="" class="w-[20px] h-auto" />
+        </div>
+      </div>
+
+      <div class="">
         <h1>{{ age.days }} days</h1>
         <h1>{{ age.months }} months</h1>
         <h1>{{ age.years }} years</h1>
