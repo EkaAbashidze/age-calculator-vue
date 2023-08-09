@@ -1,27 +1,47 @@
 <template>
   <div class="bg-[#F0F0F0] flex justify-center items-center h-screen flex-col">
-    <div class="flex flex-col justify-center items-center bg-white">
-      <div class="flex flex-col justify-center items-center">
-        <div>
+    <div
+      class="flex flex-col justify-center items-center bg-white rounded-t-[24px] rounded-bl-[24px] rounded-br-[100px] w-[343px] h-[486px]"
+    >
+      <div class="flex justify-center items-center gap-x-4">
+        <div class="flex flex-col">
           <label for="day">DAY</label>
-          <input type="number" name="day" placeholder="DD" v-model="day" />
+          <input
+            type="number"
+            name="day"
+            placeholder="DD"
+            v-model="day"
+            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none"
+          />
+          <div v-if="dayError">
+            <p>Must be a valid day</p>
+          </div>
         </div>
-        <div v-if="dayError">
-          <p>Must be a valid day</p>
-        </div>
-        <div>
+        <div class="flex flex-col">
           <label for="month">MONTH</label>
-          <input type="number" name="month" placeholder="MM" v-model="month" />
+          <input
+            type="number"
+            name="month"
+            placeholder="MM"
+            v-model="month"
+            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none"
+          />
+          <div v-if="monthError">
+            <p>Must be a valid month</p>
+          </div>
         </div>
-        <div v-if="monthError">
-          <p>Must be a valid month</p>
-        </div>
-        <div>
+        <div class="flex flex-col">
           <label for="YEAR">YEAR</label>
-          <input type="number" name="year" placeholder="YYYY" v-model="year" />
-        </div>
-        <div v-if="yearError">
-          <p>Must be in the past</p>
+          <input
+            type="number"
+            name="year"
+            placeholder="YYYY"
+            v-model="year"
+            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none"
+          />
+          <div v-if="yearError">
+            <p>Must be in the past</p>
+          </div>
         </div>
       </div>
       <div>
