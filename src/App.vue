@@ -24,9 +24,9 @@
       </div>
     </div>
     <div>
-      <h1>{{ ageDays }} days</h1>
-      <h1>{{ ageMonths }} months</h1>
-      <h1>{{ ageYears }} years</h1>
+      <h1>{{ age.days }} days</h1>
+      <h1>{{ age.months }} months</h1>
+      <h1>{{ age.years }} years</h1>
     </div>
   </div>
 </template>
@@ -38,9 +38,6 @@ export default {
       day: "",
       month: "",
       year: "",
-      ageDays: "--",
-      ageMonths: "--",
-      ageYears: "--",
       today: new Date(),
     };
   },
@@ -48,9 +45,6 @@ export default {
     day: "calculateAge",
     month: "calculateAge",
     year: "calculateAge",
-    dayError: "calculateAge",
-    monthError: "calculateAge",
-    yearError: "calculateAge",
   },
   computed: {
     dayError() {
@@ -65,9 +59,7 @@ export default {
         (this.year <= 0 || this.year > this.today.getFullYear())
       );
     },
-  },
-  methods: {
-    calculateAge() {
+    age() {
       const birthDate = new Date(this.year, this.month - 1, this.day);
 
       const isValidInput =
@@ -76,13 +68,13 @@ export default {
       const noErrors = !this.dayError && !this.monthError && !this.yearError;
 
       if (isValidInput && noErrors) {
-        this.ageDays = this.today.getDate() - birthDate.getDate();
-        this.ageMonths = this.today.getMonth() - birthDate.getMonth();
-        this.ageYears = this.today.getFullYear() - birthDate.getFullYear();
+        const days = this.today.getDate() - birthDate.getDate();
+        const months = this.today.getMonth() - birthDate.getMonth();
+        const years = this.today.getFullYear() - birthDate.getFullYear();
+
+        return { days, months, years };
       } else {
-        this.ageDays = "--";
-        this.ageMonths = "--";
-        this.ageYears = "--";
+        return { days: "--", months: "--", years: "--" };
       }
     },
   },
