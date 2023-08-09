@@ -41,11 +41,6 @@ export default {
       today: new Date(),
     };
   },
-  watch: {
-    day: "calculateAge",
-    month: "calculateAge",
-    year: "calculateAge",
-  },
   computed: {
     dayError() {
       return this.day !== "" && (this.day <= 0 || this.day > 31);
