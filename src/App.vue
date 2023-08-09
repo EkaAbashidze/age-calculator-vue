@@ -1,14 +1,14 @@
 <template>
   <div class="bg-[#F0F0F0] flex justify-center items-center h-screen flex-col">
     <div
-      class="flex flex-col justify-center bg-white rounded-t-[24px] rounded-bl-[24px] rounded-br-[100px] w-[343px] h-[486px] py-[48px] px-[24px]"
+      class="flex flex-col justify-center bg-white rounded-t-[24px] rounded-bl-[24px] rounded-br-[100px] w-[343px] h-[486px] py-[48px] px-[24px] lg:w-[840px] lg:h-[680px] lg:justify-start lg:items-start lg:p-[56px]"
     >
-      <div class="flex justify-center items-center gap-x-4">
+      <div class="flex justify-center items-center gap-x-4 lg:gap-x-8">
         <div class="flex flex-col gap-y-1 h-[120px]">
           <label
             for="day"
             :class="errorStyles(dayError)"
-            class="text-gray-700 font-poppins text-xs font-semibold tracking-widest uppercase"
+            class="text-gray-700 font-poppinsBold text-[12px] font-semibold tracking-widest uppercase lg:text-[14px]"
             >DAY</label
           >
           <input
@@ -17,7 +17,7 @@
             placeholder="DD"
             v-model="day"
             :class="errorStyles(dayError)"
-            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-[20px] font-semibold leading-normal tracking-tight"
+            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-[20px] font-semibold leading-normal tracking-tight lg:w-[160px] lg:h-[72px] lg:text-[32px]"
           />
           <div
             v-if="dayError"
@@ -30,7 +30,7 @@
           <label
             for="month"
             :class="errorStyles(monthError)"
-            class="text-gray-700 font-poppins text-xs font-semibold tracking-widest uppercase"
+            class="text-gray-700 font-poppins text-[12px] font-semibold tracking-widest uppercase lg:text-[14px]"
             >MONTH</label
           >
           <input
@@ -39,7 +39,7 @@
             placeholder="MM"
             v-model="month"
             :class="errorStyles(monthError)"
-            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-[20px] font-semibold leading-normal tracking-tight"
+            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-[20px] font-semibold leading-normal tracking-tight lg:w-[160px] lg:h-[72px] lg:text-[32px]"
           />
           <div
             v-if="monthError"
@@ -52,7 +52,7 @@
           <label
             for="YEAR"
             :class="errorStyles(yearError)"
-            class="text-gray-700 font-poppins text-xs font-semibold tracking-widest uppercase"
+            class="text-gray-700 font-poppins text-[12px] font-semibold tracking-widest uppercase lg:text-[14px]"
             >YEAR</label
           >
           <input
@@ -61,7 +61,7 @@
             placeholder="YYYY"
             v-model="year"
             :class="errorStyles(yearError)"
-            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-[20px] font-semibold leading-normal tracking-tight"
+            class="w-[88px] h-[54px] border-[1px] border-[#DCDCDC] rounded-lg p-4 focus:outline-none text-black font-poppins text-[20px] font-semibold leading-normal tracking-tight lg:w-[160px] lg:h-[72px] lg:text-[32px]"
           />
           <div
             v-if="yearError"
@@ -72,18 +72,22 @@
         </div>
       </div>
       <div
-        class="h-[1px] bg-[#DCDCDC] w-full my-[32px] mb-[64px] flex items-center justify-center"
+        class="h-[1px] bg-[#DCDCDC] w-full my-[32px] mb-[64px] flex items-center justify-center lg:justify-end"
       >
         <div
-          class="w-[64px] h-[64px] bg-[#854DFF] rounded-full flex justify-center"
+          class="w-[64px] h-[64px] bg-[#854DFF] rounded-full flex justify-center lg:w-[96px] lg:h-[96px]"
         >
-          <img src="./assets/icon-arrow.svg" alt="" class="w-[20px] h-auto" />
+          <img
+            src="./assets/icon-arrow.svg"
+            alt=""
+            class="w-[20px] h-auto lg:w-[44px]"
+          />
         </div>
       </div>
 
       <div class="">
         <h1
-          class="text-black poppinsBold text-[56px] italic font-extrabold leading-[110%] tracking-tight"
+          class="text-black poppinsBold text-[56px] italic font-extrabold leading-[110%] tracking-tight lg:text-[104px]"
         >
           <span class="text-purple-800">
             {{ age.years }}
@@ -91,7 +95,7 @@
           years
         </h1>
         <h1
-          class="text-black poppinsBold text-[56px] italic font-extrabold leading-[110%] tracking-tight"
+          class="text-black poppinsBold text-[56px] italic font-extrabold leading-[110%] tracking-tight lg:text-[104px]"
         >
           <span class="text-purple-800">
             {{ age.months }}
@@ -99,7 +103,7 @@
           months
         </h1>
         <h1
-          class="text-black poppinsBold text-[56px] italic font-extrabold leading-[110%] tracking-tight"
+          class="text-black poppinsBold text-[56px] italic font-extrabold leading-[110%] tracking-tight lg:text-[104px]"
         >
           <span class="text-purple-800"> {{ age.days }}</span>
           days

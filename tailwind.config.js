@@ -12,6 +12,9 @@ export default {
         poppinsExtraBoldItalic: ["Poppins-ExtraBoldItalic", "sans"],
       },
     },
+    screens: {
+      lg: "1024px",
+    },
   },
   plugins: [],
 };
