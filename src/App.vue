@@ -3,39 +3,21 @@
     <div>
       <div>
         <label for="day">DAY</label>
-        <input
-          type="number"
-          name="day"
-          placeholder="DD"
-          v-model="day"
-          @input="getDayError"
-        />
+        <input type="number" name="day" placeholder="DD" v-model="day" />
       </div>
       <div v-if="dayError">
         <p>Must be a valid day</p>
       </div>
       <div>
         <label for="month">MONTH</label>
-        <input
-          type="number"
-          name="month"
-          placeholder="MM"
-          v-model="month"
-          @input="getMonthError"
-        />
+        <input type="number" name="month" placeholder="MM" v-model="month" />
       </div>
       <div v-if="monthError">
         <p>Must be a valid month</p>
       </div>
       <div>
         <label for="YEAR">YEAR</label>
-        <input
-          type="number"
-          name="year"
-          placeholder="YYYY"
-          v-model="year"
-          @input="getYearError"
-        />
+        <input type="number" name="year" placeholder="YYYY" v-model="year" />
       </div>
       <div v-if="yearError">
         <p>Must be in the past</p>
@@ -60,9 +42,6 @@ export default {
       ageMonths: "--",
       ageYears: "--",
       today: new Date(),
-      dayError: false,
-      monthError: false,
-      yearError: false,
     };
   },
   watch: {
@@ -72,6 +51,20 @@ export default {
     dayError: "calculateAge",
     monthError: "calculateAge",
     yearError: "calculateAge",
+  },
+  computed: {
+    dayError() {
+      return this.day !== "" && (this.day <= 0 || this.day > 31);
+    },
+    monthError() {
+      return this.month !== "" && (this.month <= 0 || this.month > 12);
+    },
+    yearError() {
+      return (
+        this.year !== "" &&
+        (this.year <= 0 || this.year > this.today.getFullYear())
+      );
+    },
   },
   methods: {
     calculateAge() {
@@ -90,36 +83,6 @@ export default {
         this.ageDays = "--";
         this.ageMonths = "--";
         this.ageYears = "--";
-      }
-    },
-    getDayError() {
-      const isValidDay = this.day !== "" && (this.day <= 0 || this.day > 31);
-
-      if (isValidDay) {
-        this.dayError = true;
-      } else {
-        this.dayError = false;
-      }
-    },
-    getMonthError() {
-      const isValidMonth =
-        this.month !== "" && (this.month <= 0 || this.month > 12);
-
-      if (isValidMonth) {
-        this.monthError = true;
-      } else {
-        this.monthError = false;
-      }
-    },
-    getYearError() {
-      const isValidYear =
-        this.year !== "" &&
-        (this.year <= 0 || this.year > this.today.getFullYear());
-
-      if (isValidYear) {
-        this.yearError = true;
-      } else {
-        this.yearError = false;
       }
     },
   },
